@@ -2,10 +2,9 @@ require 'rails_helper'
 
 describe Shareconomy::Api::V1::Auth::RegistrationsController do
   routes { Shareconomy::Engine.routes }
+  include_context 'shareconomy_user'
 
   describe 'POST #create' do
-    let(:user) { create(:shareconomy_user) }
-
     let(:params) do
       {
         email: Faker::Internet.email,
@@ -15,12 +14,6 @@ describe Shareconomy::Api::V1::Auth::RegistrationsController do
       }
     end
 
-    before do
-      request.env['devise.mapping'] = Devise.mappings[:shareconomy_user]
-      allow(@controller).to receive(:current_shareconomy_user).and_return(user)
-    end
-
-
     it 'should return 201', :show_in_doc do
       post :create, params
       should respond_with :created
@@ -28,6 +21,13 @@ describe Shareconomy::Api::V1::Auth::RegistrationsController do
 
     it 'should create a new user' do
       expect { post :create, params }.to change { Shareconomy::User.count }.by(1)
+    end
+
+    it 'should create profile with given params', :show_in_doc do
+      post :create, params
+      profile = Shareconomy::Profile.last
+      expect(profile.first_name).to eq params[:first_name]
+      expect(profile.last_name).to eq params[:last_name]
     end
 
     context 'email already in use' do

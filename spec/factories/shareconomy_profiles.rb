@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :shareconomy_profile, class: 'Shareconomy::Profile' do
+  factory :shareconomy_profile, class: Shareconomy::Profile.name do
     shareconomy_user
     first_name { Faker::Name.first_name }
     last_name { Faker::Name.last_name }
