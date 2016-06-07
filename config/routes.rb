@@ -6,4 +6,15 @@ Shareconomy::Engine.routes.draw do
                                   registrations: 'shareconomy/api/v1/auth/registrations',
                                   sessions: 'shareconomy/api/v1/auth/sessions'
                                 }
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :orders, only: [:show, :create] do
+        collection do
+          get :sales
+          get :purchases
+        end
+      end
+    end
+  end
 end
