@@ -5,6 +5,8 @@ rescue LoadError
 end
 
 require 'rdoc/task'
+require 'rspec/core'
+require 'rspec/core/rake_task'
 
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
@@ -24,3 +26,6 @@ load 'rails/tasks/statistics.rake'
 
 Bundler::GemHelper.install_tasks
 
+RSpec::Core::RakeTask.new(:spec => 'app:db:test:prepare')
+
+task :default => :spec

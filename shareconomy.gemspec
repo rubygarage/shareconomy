@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "devise_token_auth", "0.1.37"
   s.add_dependency "active_model_serializers", '~> 0.9.0'
 
+  s.add_development_dependency "pg"
   s.add_development_dependency "fuubar"
   s.add_development_dependency "faker"
   s.add_development_dependency "pry-rails"
