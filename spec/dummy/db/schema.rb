@@ -35,6 +35,19 @@ ActiveRecord::Schema.define(version: 20160606125944) do
   add_index "shareconomy_listings", ["category_id"], name: "index_shareconomy_listings_on_category_id", using: :btree
   add_index "shareconomy_listings", ["user_id"], name: "index_shareconomy_listings_on_user_id", using: :btree
 
+  create_table "shareconomy_locations", force: :cascade do |t|
+    t.string   "state"
+    t.string   "city"
+    t.string   "district"
+    t.string   "street"
+    t.string   "zip_code"
+    t.integer  "listing_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shareconomy_locations", ["listing_id"], name: "index_shareconomy_locations_on_listing_id", using: :btree
+
   create_table "shareconomy_messages", force: :cascade do |t|
     t.integer  "sender_id"
     t.integer  "recipient_id"
@@ -60,6 +73,19 @@ ActiveRecord::Schema.define(version: 20160606125944) do
   add_index "shareconomy_orders", ["buyer_id"], name: "index_shareconomy_orders_on_buyer_id", using: :btree
   add_index "shareconomy_orders", ["listing_id"], name: "index_shareconomy_orders_on_listing_id", using: :btree
   add_index "shareconomy_orders", ["seller_id"], name: "index_shareconomy_orders_on_seller_id", using: :btree
+
+  create_table "shareconomy_ratings", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "value"
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "shareconomy_ratings", ["listing_id"], name: "index_shareconomy_ratings_on_listing_id", using: :btree
+  add_index "shareconomy_ratings", ["user_id"], name: "index_shareconomy_ratings_on_user_id", using: :btree
 
   create_table "shareconomy_users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
