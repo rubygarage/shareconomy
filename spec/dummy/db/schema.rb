@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160606125944) do
+ActiveRecord::Schema.define(version: 20160607124927) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,16 @@ ActiveRecord::Schema.define(version: 20160606125944) do
   add_index "shareconomy_orders", ["buyer_id"], name: "index_shareconomy_orders_on_buyer_id", using: :btree
   add_index "shareconomy_orders", ["listing_id"], name: "index_shareconomy_orders_on_listing_id", using: :btree
   add_index "shareconomy_orders", ["seller_id"], name: "index_shareconomy_orders_on_seller_id", using: :btree
+
+  create_table "shareconomy_profiles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.date     "birthday"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "shareconomy_ratings", force: :cascade do |t|
     t.string   "title"
