@@ -7,6 +7,7 @@ require File.expand_path('../dummy/config/environment', __FILE__)
 require 'rspec/rails'
 require 'factory_girl_rails'
 require 'shoulda/matchers'
+require 'apipie-rails'
 require 'devise'
 require 'faker'
 

@@ -5,6 +5,8 @@ module Shareconomy
     context 'relation' do
       it { should belong_to(:user) }
       it { should belong_to(:category) }
+      it { should have_one(:location) }
+      it { should have_many(:ratings) }
       it { should have_many(:orders) }
     end
 

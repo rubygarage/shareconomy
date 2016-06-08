@@ -5,5 +5,10 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     name { Faker::Name.name }
     password { Faker::Internet.password }
+
+    after(:create) do |user, _evaluator|
+      attributes = attributes_for(:shareconomy_profile)
+      user.profile.update_attributes(attributes)
+    end
   end
 end

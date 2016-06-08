@@ -31,4 +31,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec-rails", '~> 3.0'
   s.add_development_dependency "codeclimate-test-reporter"
   s.add_development_dependency 'shoulda-matchers', '~> 3.1'
+  s.add_development_dependency 'apipie-rails'
 end
