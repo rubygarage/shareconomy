@@ -1,3 +1,4 @@
+
 begin
   require 'bundler/setup'
 rescue LoadError
