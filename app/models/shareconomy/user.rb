@@ -11,5 +11,6 @@ module Shareconomy
     has_many :received_messages, class_name: Message.name, foreign_key: "recipient_id"
 
     after_create :create_profile
+
   end
 end
