@@ -11,6 +11,8 @@ require 'apipie-rails'
 require 'devise'
 require 'faker'
 
+Dir[Rails.root.join('../support/**/*.rb')].each { |f| require f }
+
 ActiveRecord::Migrator.migrations_paths = 'spec/dummy/db/migrate'
 ActiveRecord::Migration.maintain_test_schema!
 
