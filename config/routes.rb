@@ -4,7 +4,8 @@ Shareconomy::Engine.routes.draw do
                                 at: 'api/v1/auth',
                                 controllers: {
                                   registrations: 'shareconomy/api/v1/auth/registrations',
-                                  sessions: 'shareconomy/api/v1/auth/sessions'
+                                  sessions: 'shareconomy/api/v1/auth/sessions',
+                                  passwords: 'shareconomy/api/v1/auth/passwords'
                                 }
 
   namespace :api, defaults: { format: :json } do
