@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'aasm', "~> 4.10.1"
   s.add_dependency "rails", "~> 4.2.6"
   s.add_dependency 'cancancan', '~> 1.10'
-  s.add_dependency "devise_token_auth", "0.1.37"
+  s.add_dependency "devise_token_auth", "1.2.1"
   s.add_dependency "active_model_serializers", '~> 0.9.0'
 
   s.add_development_dependency "pg"
